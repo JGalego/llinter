@@ -1,0 +1,6 @@
+Jinja2
+openai
+
+# As of late Feb 2024, the latest version is *not* working!
+# https://github.com/ScrapeGraphAI/Scrapegraph-ai/issues/926
+scrapegraphai==1.37.0

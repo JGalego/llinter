@@ -1,0 +1,342 @@
+{
+    "basic_checker_rules": [
+        {
+            "id": "E0103",
+            "name": "not-in-loop",
+            "description": "%r not properly in loop",
+            "message": "Used when break or continue keywords are used outside a loop."
+        },
+        {
+            "id": "E0102",
+            "name": "function-redefined",
+            "description": "%s already defined line %s",
+            "message": "Used when a function / class / method is redefined."
+        },
+        {
+            "id": "E0116",
+            "name": "continue-in-finally",
+            "description": "'continue' not supported inside 'finally' clause",
+            "message": "Emitted when the continue keyword is found inside a finally clause, which is a SyntaxError."
+        },
+        {
+            "id": "E0110",
+            "name": "abstract-class-instantiated",
+            "description": "Abstract class %r with abstract methods instantiated",
+            "message": "Used when an abstract class with abc.ABCMeta as metaclass has abstract methods and is instantiated."
+        },
+        {
+            "id": "E0114",
+            "name": "star-needs-assignment-target",
+            "description": "Can use starred expression only in assignment target",
+            "message": "Emitted when a star expression is not used in an assignment target."
+        },
+        {
+            "id": "E0108",
+            "name": "duplicate-argument-name",
+            "description": "Duplicate argument name %r in function definition",
+            "message": "Duplicate argument names in function definitions are syntax errors."
+        },
+        {
+            "id": "E0101",
+            "name": "return-in-init",
+            "description": "Explicit return in __init__",
+            "message": "Used when the special class method __init__ has an explicit return value."
+        },
+        {
+            "id": "E0112",
+            "name": "too-many-star-expressions",
+            "description": "More than one starred expression in assignment",
+            "message": "Emitted when there are more than one starred expressions (*x) in an assignment."
+        },
+        {
+            "id": "E0115",
+            "name": "nonlocal-and-global",
+            "description": "Name %r is nonlocal and global",
+            "message": "Emitted when a name is both nonlocal and global."
+        },
+        {
+            "id": "E0118",
+            "name": "used-prior-global-declaration",
+            "description": "Name %r is used prior to global declaration",
+            "message": "Emitted when a name is used prior a global declaration, which results in an error since Python 3.6."
+        },
+        {
+            "id": "E0104",
+            "name": "return-outside-function",
+            "description": "Return outside function",
+            "message": "Used when a 'return' statement is found outside a function or method."
+        },
+        {
+            "id": "E0106",
+            "name": "return-arg-in-generator",
+            "description": "Return with argument inside generator",
+            "message": "Used when a 'return' statement with an argument is found in a generator function or method."
+        },
+        {
+            "id": "E0113",
+            "name": "invalid-star-assignment-target",
+            "description": "Starred assignment target must be in a list or tuple",
+            "message": "Emitted when a star expression is used as a starred assignment target."
+        },
+        {
+            "id": "E0111",
+            "name": "bad-reversed-sequence",
+            "description": "The first reversed() argument is not a sequence",
+            "message": "Used when the first argument to reversed() builtin isn't a sequence."
+        },
+        {
+            "id": "E0107",
+            "name": "nonexistent-operator",
+            "description": "Use of the non-existent %s operator",
+            "message": "Used when you attempt to use the C-style pre-increment or pre-decrement operator."
+        },
+        {
+            "id": "E0105",
+            "name": "yield-outside-function",
+            "description": "Yield outside function",
+            "message": "Used when a 'yield' statement is found outside a function or method."
+        },
+        {
+            "id": "E0100",
+            "name": "init-is-generator",
+            "description": "__init__ method is a generator",
+            "message": "Used when the special class method __init__ is turned into a generator by a yield in its body."
+        },
+        {
+            "id": "E0119",
+            "name": "misplaced-format-function",
+            "description": "_format function is not called on str",
+            "message": "Emitted when format function is not called on str object."
+        },
+        {
+            "id": "E0117",
+            "name": "nonlocal-without-binding",
+            "description": "nonlocal name %s found without binding",
+            "message": "Emitted when a nonlocal variable does not have an attached name somewhere in the parent scopes."
+        },
+        {
+            "id": "W0150",
+            "name": "lost-exception",
+            "description": "%s statement in finally block may swallow exception",
+            "message": "Used when a break or a return statement is found inside the finally clause."
+        },
+        {
+            "id": "W0134",
+            "name": "return-in-finally",
+            "description": "'return' shadowed by the 'finally' clause.",
+            "message": "Emitted when a 'return' statement is found in a 'finally' block."
+        },
+        {
+            "id": "W0199",
+            "name": "assert-on-tuple",
+            "description": "Assert called on a populated tuple. Did you mean 'assert x,y'?",
+            "message": "A call of assert on a tuple will always evaluate to true if the tuple is not empty."
+        },
+        {
+            "id": "W0129",
+            "name": "assert-on-string-literal",
+            "description": "Assert statement has a string literal as its first argument.",
+            "message": "Used when an assert statement has a string literal as its first argument."
+        },
+        {
+            "id": "W0127",
+            "name": "self-assigning-variable",
+            "description": "Assigning the same variable %r to itself",
+            "message": "Emitted when we detect that a variable is assigned to itself."
+        },
+        {
+            "id": "W0143",
+            "name": "comparison-with-callable",
+            "description": "Comparing against a callable, did you omit the parenthesis?",
+            "message": "This message is emitted when pylint detects that a comparison with a callable was made."
+        },
+        {
+            "id": "W0177",
+            "name": "nan-comparison",
+            "description": "Comparison %s should be %s",
+            "message": "Used when an expression is compared to NaN values."
+        },
+        {
+            "id": "W0102",
+            "name": "dangerous-default-value",
+            "description": "Dangerous default value %s as argument",
+            "message": "Used when a mutable value as list or dictionary is detected in a default value for an argument."
+        },
+        {
+            "id": "W0109",
+            "name": "duplicate-key",
+            "description": "Duplicate key %r in dictionary",
+            "message": "Used when a dictionary expression binds the same key multiple times."
+        },
+        {
+            "id": "W0130",
+            "name": "duplicate-value",
+            "description": "Duplicate value %r in set",
+            "message": "This message is emitted when a set contains the same value two or more times."
+        },
+        {
+            "id": "W0120",
+            "name": "useless-else-on-loop",
+            "description": "Else clause on loop without a break statement",
+            "message": "Loops should only have an else clause if they can exit early with a break statement."
+        },
+        {
+            "id": "W0133",
+            "name": "pointless-exception-statement",
+            "description": "Exception statement has no effect",
+            "message": "Used when an exception is created without being assigned, raised or returned."
+        },
+        {
+            "id": "W0106",
+            "name": "expression-not-assigned",
+            "description": "Expression \"%s\" is assigned to nothing",
+            "message": "Used when an expression that is not a function call is assigned to nothing."
+        },
+        {
+            "id": "W0124",
+            "name": "confusing-with-statement",
+            "description": "Following \"as\" with another context manager looks like a tuple.",
+            "message": "Emitted when a with statement component returns multiple values."
+        },
+        {
+            "id": "W0108",
+            "name": "unnecessary-lambda",
+            "description": "Lambda may not be necessary",
+            "message": "Used when the body of a lambda expression is a function call on the same argument list."
+        },
+        {
+            "id": "W0131",
+            "name": "named-expr-without-context",
+            "description": "Named expression used without context",
+            "message": "Emitted if named expression is used to do a regular assignment outside a context."
+        },
+        {
+            "id": "W0128",
+            "name": "redeclared-assigned-name",
+            "description": "Redeclared variable %r in assignment",
+            "message": "Emitted when we detect that a variable was redeclared in the same assignment."
+        },
+        {
+            "id": "W0104",
+            "name": "pointless-statement",
+            "description": "Statement seems to have no effect",
+            "message": "Used when a statement doesn't have (or at least seems to) any effect."
+        },
+        {
+            "id": "W0105",
+            "name": "pointless-string-statement",
+            "description": "String statement has no effect",
+            "message": "Used when a string is used as a statement."
+        },
+        {
+            "id": "W0135",
+            "name": "contextmanager-generator-missing-cleanup",
+            "description": "The context used in function %r will not be exited.",
+            "message": "Used when a contextmanager is used inside a generator function."
+        },
+        {
+            "id": "W0107",
+            "name": "unnecessary-pass",
+            "description": "Unnecessary pass statement",
+            "message": "Used when a \"pass\" statement can be removed without affecting the behaviour of the code."
+        },
+        {
+            "id": "W0101",
+            "name": "unreachable",
+            "description": "Unreachable code",
+            "message": "Used when there is some code behind a \"return\" or \"raise\" statement."
+        },
+        {
+            "id": "W0123",
+            "name": "eval-used",
+            "description": "Use of eval",
+            "message": "Used when you use the \"eval\" function."
+        },
+        {
+            "id": "W0122",
+            "name": "exec-used",
+            "description": "Use of exec",
+            "message": "Raised when the 'exec' statement is used."
+        },
+        {
+            "id": "W0125",
+            "name": "using-constant-test",
+            "description": "Using a conditional statement with a constant value",
+            "message": "Emitted when a conditional statement uses a constant value for its test."
+        },
+        {
+            "id": "W0126",
+            "name": "missing-parentheses-for-call-in-test",
+            "description": "Using a conditional statement with potentially wrong function or method call due to missing parentheses",
+            "message": "Emitted when a conditional statement seems to wrongly call a function due to missing parentheses."
+        }
+    ],
+    "format_checker_rules": [
+        {
+            "id": "W0311",
+            "name": "bad-indentation",
+            "description": "Bad indentation. Found %s %s, expected %s",
+            "message": "Used when an unexpected number of indentation's tabulations or spaces has been found."
+        },
+        {
+            "id": "W0301",
+            "name": "unnecessary-semicolon",
+            "description": "Unnecessary semicolon",
+            "message": "Used when a statement is ended by a semi-colon (\";\"), which isn't necessary."
+        },
+        {
+            "id": "C0304",
+            "name": "missing-final-newline",
+            "description": "Final newline missing",
+            "message": "Used when the last line in a file is missing a newline."
+        },
+        {
+            "id": "C0301",
+            "name": "line-too-long",
+            "description": "Line too long (%s/%s)",
+            "message": "Used when a line is longer than a given number of characters."
+        },
+        {
+            "id": "C0327",
+            "name": "mixed-line-endings",
+            "description": "Mixed line endings LF and CRLF",
+            "message": "Used when there are mixed (LF and CRLF) newline signs in a file."
+        },
+        {
+            "id": "C0321",
+            "name": "multiple-statements",
+            "description": "More than one statement on a single line",
+            "message": "Used when more than on statement are found on the same line."
+        },
+        {
+            "id": "C0302",
+            "name": "too-many-lines",
+            "description": "Too many lines in module (%s/%s)",
+            "message": "Used when a module has too many lines, reducing its readability."
+        },
+        {
+            "id": "C0305",
+            "name": "trailing-newlines",
+            "description": "Trailing newlines",
+            "message": "Used when there are trailing blank lines in a file."
+        },
+        {
+            "id": "C0303",
+            "name": "trailing-whitespace",
+            "description": "Trailing whitespace",
+            "message": "Used when there is whitespace between the end of a line and the newline."
+        },
+        {
+            "id": "C0328",
+            "name": "unexpected-line-ending-format",
+            "description": "Unexpected line ending format. There is '%s' while it should be '%s'.",
+            "message": "Used when there is different newline than expected."
+        },
+        {
+            "id": "C0325",
+            "name": "superfluous-parens",
+            "description": "Unnecessary parens after %r keyword",
+            "message": "Used when a single item in parentheses follows an if, for, or other keyword."
+        }
+    ]
+}
