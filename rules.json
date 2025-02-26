@@ -105,7 +105,7 @@
         {
             "id": "E0119",
             "name": "misplaced-format-function",
-            "description": "_format function is not called on str",
+            "description": "format function is not called on str",
             "message": "Emitted when format function is not called on str object."
         },
         {
@@ -288,7 +288,8 @@
             "id": "C0304",
             "name": "missing-final-newline",
             "description": "Final newline missing",
-            "message": "Used when the last line in a file is missing a newline."
+            "message": "Used when the last line in a file is missing a newline.",
+            "enabled": false
         },
         {
             "id": "C0301",

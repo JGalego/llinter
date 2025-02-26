@@ -1,14 +1,20 @@
 """
-Lints a target Python file using with an LLM.
+Lints a target file using an LLM.
 """
 
 # Standard imports
 import argparse
 import json
 
+from typing import Iterable, Optional
+
 # Library imports
+import instructor
+
 from jinja2 import Template
 from openai import OpenAI
+from prettytable import PrettyTable
+from pydantic import BaseModel
 
 parser = argparse.ArgumentParser(
     prog="LLinter",
@@ -22,10 +28,18 @@ parser.add_argument('-m', '--model', default="gpt-4o")
 # Parse arguments
 args = parser.parse_args()
 
-# Initialize cliente
-client = OpenAI()
+# Define desired output structure
+class Finding(BaseModel):
+    """Linter finding base class"""
+    id: str
+    name: str
+    code: Optional[str] = None
+    comments: Optional[str] = None
 
-# Retrieve rules
+# Patch OpenAI client
+client = instructor.from_openai(OpenAI())
+
+# Retrieve lint rules
 with open(args.rules, "r", encoding="utf-8") as rules_f:
     rules_scraped = json.load(rules_f)
 
@@ -43,8 +57,8 @@ with open(args.prompt, "r", encoding="utf-8") as template_f:
 prompt = template.render(rules=rules, script=script)
 print(prompt)
 
-# Process response
-response = client.chat.completions.create(
+# Run LLM linter
+findings = client.chat.completions.create(
     messages=[
         {
             "role": "user",
@@ -52,7 +66,23 @@ response = client.chat.completions.create(
         }
     ],
     model=args.model,
+    response_model=Optional[Iterable[Finding]],
     temperature=0.0,
 )
 
-print(response.choices[0].message.content)
+# Process response
+findings = list(findings) if findings else []
+if (n := len(findings)) > 0:
+    table = PrettyTable()
+    table.field_names = ["ID", "Name", "Code", "Comments"]
+    for finding in findings:
+        table.add_row([
+            finding.id,
+            finding.name,
+            finding.code,
+            finding.comments
+        ])
+    print(f"🚨 Alert, linter found {n} violations!")
+    print(table)
+else:
+    print("✅ Code clear, no violations found!")

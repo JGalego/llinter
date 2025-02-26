@@ -1,34 +1,53 @@
 """
-Extract Pylint rules with ScrapeGraphAI
+Extract lint rules with ScrapeGraphAI
 """
 
+# Standard imports
+import argparse
 import json
 import os
 
+# Library imports
 from scrapegraphai.graphs import SmartScraperGraph
 
-# Define the configuration for the scraping pipeline
+# Constants
+SOURCE = "https://pylint.readthedocs.io/en/latest/user_guide/checkers/features.html"
+PROMPT = "Extract all basic checker and format checker rules (id, name, description and message)."
+
+parser = argparse.ArgumentParser(
+    prog="LintScraper",
+    description="Extract lint rules with ScrapeGraphAI.",
+)
+parser.add_argument('-s', '--source', default=SOURCE)
+parser.add_argument('-p', '--prompt', default=PROMPT)
+parser.add_argument('-m', '--model', default="gpt-4o-mini")
+parser.add_argument('-o', '--output', default="rules.json")
+
+# Parse arguments
+args = parser.parse_args()
+
+# Define scraping pipeline config
 graph_config = {
     'llm': {
         'api_key': os.getenv('OPENAI_API_KEY'),
-        'model': "openai/gpt-4o-mini",
+        'model': f"openai/{args.model}",
     },
     'verbose': True,
     'headless': False,
 }
 
-# Create the SmartScraperGraph instance
+# Create graph instance
 smart_scraper_graph = SmartScraperGraph(
-    prompt="Extract all basic checker and format checker rules (id, name, description and message).",
-    source="https://pylint.readthedocs.io/en/latest/user_guide/checkers/features.html",
+    prompt=args.prompt,
+    source=args.source,
     config=graph_config
 )
 
-# Run the pipeline
+# Run pipeline
 result = smart_scraper_graph.run()
 
-# Display the results
+# Display results
 rules = json.dumps(result, indent=4)
-with open("rules.json", "w", encoding="utf-8") as f:
+with open(args.output, "w", encoding="utf-8") as f:
     print(rules)
     f.write(rules)

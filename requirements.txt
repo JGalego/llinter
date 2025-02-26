@@ -1,5 +1,7 @@
+inspector
 Jinja2
 openai
+prettytable
 
 # As of late Feb 2024, the latest version is *not* working!
 # https://github.com/ScrapeGraphAI/Scrapegraph-ai/issues/926
