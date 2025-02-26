@@ -8,7 +8,7 @@ Lint your codebase using LLMs:
 - reviews code via [OpenAI API](https://platform.openai.com/docs/overview) calls
 - processes findings with [inspector](https://github.com/instructor-ai/instructor)
 
-![](https://i.gifer.com/origin/70/709840703b978fbdae568b1d13fdf853.gif)
+![](llinter.gif)
 
 ## Getting Started
 
