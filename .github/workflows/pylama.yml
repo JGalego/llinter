@@ -1,0 +1,20 @@
+name: pylama
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python 3
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.12"
+    - name: Install dev dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements-dev.txt
+    - name: Analysing the code with pylama
+      run: |
+        pylama --linters pylint *.py

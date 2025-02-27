@@ -1,0 +1,26 @@
+# For use with pre-commit.
+# See usage instructions at https://pre-commit.com
+
+ci:
+  skip: [pylama]
+
+repos:
+  # pip-audit
+  # See https://pypi.org/project/pip-audit/#pre-commit-support
+  - repo: https://github.com/pypa/pip-audit
+    rev: v2.8.0
+    hooks:
+      - id: pip-audit
+        args: ["-r", "requirements.txt"]
+  # pylama
+  # See https://github.com/klen/pylama/blob/develop/.pre-commit-hooks.yaml
+  - repo: local
+    hooks:
+      - id: pylama
+        name: pylama
+        entry: pylama
+        language: python
+        types: [file, python]
+        exclude: ^examples
+        args: ["--linters", "pylint"]
+        additional_dependencies: []

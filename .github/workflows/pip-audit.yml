@@ -1,0 +1,10 @@
+name: pip-audit
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: pypa/gh-action-pip-audit@v1.1.0
