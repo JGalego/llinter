@@ -5,10 +5,10 @@
 > ⚠️ **For demo purposes only:** use with caution!
 
 Lint your codebase using LLMs:
-- extracts rules using [ScrapeGraphAI](https://scrapegraphai.com/)
-- creates prompt templates with [Jinja2](https://jinja.palletsprojects.com/en/stable/)
-- reviews code via [OpenAI API](https://platform.openai.com/docs/overview) calls
-- processes findings with [inspector](https://github.com/instructor-ai/instructor)
+- extract lint rules using [ScrapeGraphAI](https://scrapegraphai.com/)
+- create prompt templates with [Jinja2](https://jinja.palletsprojects.com/en/stable/)
+- review code through [OpenAI API](https://platform.openai.com/docs/overview) calls
+- processe findings with [inspector](https://github.com/instructor-ai/instructor)
 
 ![](llinter.gif)
 
@@ -44,7 +44,7 @@ Lint your codebase using LLMs:
 +-------+-----------------------+-----------------------+---------------------------------------------------------------------------+
 ```
 
-## Examples
+## Usage
 
 ### Scraper
 
