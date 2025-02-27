@@ -16,6 +16,7 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements-dev.txt
+        pip install -r requirements.txt
     - name: 🦙 Run Pylama
       run: |
         pylama --linters pylint *.py
