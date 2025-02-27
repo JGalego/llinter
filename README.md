@@ -1,5 +1,7 @@
 ## LLinter 🧶
 
+![mission](https://img.shields.io/badge/mission-lint_all_things!-purple) ![languages](https://img.shields.io/badge/languages-Python-blue.svg) ![last commit](https://img.shields.io/github/last-commit/JGalego/awesome-safety-critical-ai)
+
 > ⚠️ **For demo purposes only:** use with caution!
 
 Lint your codebase using LLMs:
